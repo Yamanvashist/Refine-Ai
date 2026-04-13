@@ -1,1 +1,11 @@
+@font-face {
+  font-family: Poppins;
+  src: url("../src/assets/fonts/Poppins-Black.ttf");
+}
+
 @import "tailwindcss";
+
+
+@theme {
+  --font-poppins: Poppins, "sans-serif";
+}
