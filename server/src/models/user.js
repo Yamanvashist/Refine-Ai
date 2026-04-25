@@ -24,7 +24,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         enum: ["user", "admin"],
         default: "user"
-    }
+    },
+    credits : {
+        type : Number,
+        default : 5
+    },
 
 }, { timestamps: true })
 

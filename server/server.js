@@ -6,6 +6,8 @@ const cookieParser = require('cookie-parser')
 const connect = require("./src/config/Connection")
 
 const userRouter = require("./src/routes/userRoutes")
+const aiRouter = require("./src/routes/aiRoutes")
+const orderRouter = require("./src/routes/orderRoutes")
 
 dotenv.config()
 
@@ -24,6 +26,8 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 app.use("/user", userRouter)
+app.use("/ai", aiRouter)
+app.use("/order",orderRouter)
 
 
 const port = process.env.PORT || 5000

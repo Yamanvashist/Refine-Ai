@@ -29,13 +29,14 @@ const register = async (req, res) => {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
             sameSite: "strict",
-            maxAge: 24 * 60 * 60 * 1000, // 1 day — matches JWT
+            maxAge: 24 * 60 * 60 * 1000,
         });
 
         return res.status(201).json({
             message: "User created",
             success: true,
             user: { id: user._id, name: user.name, email: user.email, role: user.role },
+            credits: user.credits
         });
     } catch (err) {
         console.error("[register]", err);
@@ -75,6 +76,7 @@ const login = async (req, res) => {
             message: "Login successful",
             success: true,
             user: { id: user._id, name: user.name, email: user.email, role: user.role },
+            credits: user.credits
         });
     } catch (err) {
         console.error("[login]", err);
@@ -82,5 +84,15 @@ const login = async (req, res) => {
     }
 };
 
+const logout = (req, res) => {
+    try {
+        res.clearCookie("token", {
+        })
+        return res.status(200).json({ success: true, message: "Logged out successfully" })
+    } catch (err) {
+        res.status(500).json({ success: false, message: "Logged out failed" })
+    }
+}
 
-module.exports = { register, login }
+
+module.exports = { register, login, logout }
