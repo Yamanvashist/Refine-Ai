@@ -86,12 +86,12 @@ const Pricing = () => {
           try {
             const verifyRes = await axios.post(
               "http://localhost:4000/order/verify-payment",
-              response, // ✅ DO NOT send credits from frontend
+              response, 
               { withCredentials: true }
             );
 
             if (verifyRes.data.success) {
-              alert("Payment successful 🚀");
+              alert("Payment successful ");
 
               if (user) {
                 setUser({

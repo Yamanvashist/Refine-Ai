@@ -13,6 +13,7 @@ import Pricing from './pages/Pricing';
 import History from './pages/History';
 import SingleAnalysis from './pages/SingleAnalysis';
 import Resume from "./pages/Resume"
+import About from './pages/About';
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/resume" element={<Resume />} />
           <Route path='/pricing' element={<Pricing />} />
           <Route path='/history' element={<History />} />
+          <Route path='/about' element={<About />} />
           <Route path="/analysis/:id" element={<SingleAnalysis />} />
         </Route>
 

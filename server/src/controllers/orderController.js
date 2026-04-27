@@ -3,12 +3,20 @@ const razorPay = require("../config/razorpay");
 
 const createOrder = async (req, res) => {
   try {
-    const { amount } = req.body;
+    const amount = Number(req.body.amount);
 
-    let credits = 0;
+    console.log("REQ BODY ", req.body);
 
-    if (amount === 299) credits = 50;
-    if (amount === 599) credits = 120;
+    if (!amount || amount <= 0) {
+      return res.status(400).json({ message: "Invalid amount" });
+    }
+
+    const creditMap = {
+      299: 50,
+      599: 120,
+    };
+
+    const credits = creditMap[amount] || 0;
 
     const options = {
       amount: amount * 100,
@@ -26,8 +34,9 @@ const createOrder = async (req, res) => {
       status: "created",
     });
 
-    res.json(razorOrder);
+    console.log("CREATED ORDER 👉", razorOrder.id);
 
+    res.json(razorOrder);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Order creation failed" });

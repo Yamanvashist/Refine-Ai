@@ -22,6 +22,11 @@ const orderSchema = new mongoose.Schema(
       required: true,
     },
 
+    credits: {
+      type: Number,
+      required: true,
+    },
+
     status: {
       type: String,
       enum: ["created", "paid", "failed"],

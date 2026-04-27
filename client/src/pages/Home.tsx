@@ -54,6 +54,7 @@ const Home = () => {
   const tools = [
     {
       label: "Code Refiner",
+      href : "/dashboard",
       tag: "Dev Tool",
       tagColor: "from-violet-500 to-fuchsia-500",
       border: "hover:border-violet-400/40 hover:shadow-violet-500/10",
@@ -69,6 +70,7 @@ const Home = () => {
     },
     {
       label: "Resume Analyzer",
+      href : "/resume",
       tag: "Career Tool",
       tagColor: "from-cyan-500 to-blue-500",
       border: "hover:border-cyan-400/40 hover:shadow-cyan-500/10",
@@ -207,7 +209,7 @@ const Home = () => {
                 </ul>
 
                 <button
-                  onClick={() => navigate("/dashboard")}
+                  onClick={() => navigate(tool.href)}
                   className={`mt-8 text-sm font-semibold ${tool.accent} hover:underline underline-offset-4 transition flex items-center gap-1 cursor-pointer`}
                 >
                   Try it now

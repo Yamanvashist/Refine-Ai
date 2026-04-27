@@ -10,7 +10,7 @@ const verifyPayment = async (req, res) => {
       razorpay_signature,
     } = req.body;
 
-    console.log("VERIFYING ORDER 👉", razorpay_order_id);
+    console.log("VERIFYING ORDER ", razorpay_order_id);
 
     const userId = req.user.id;
 
@@ -32,6 +32,7 @@ const verifyPayment = async (req, res) => {
       return res.status(400).json({ message: "Already processed" });
     }
 
+   
     const sign = razorpay_order_id + "|" + razorpay_payment_id;
 
     const expectedSign = crypto
@@ -46,13 +47,28 @@ const verifyPayment = async (req, res) => {
       return res.status(400).json({ message: "Invalid signature" });
     }
 
+   
+    if (!order.credits) {
+      const creditMap = {
+        299: 50,
+        599: 120,
+      };
+
+      order.credits = creditMap[order.amount] || 0;
+    }
+
+
     order.paymentId = razorpay_payment_id;
     order.signature = razorpay_signature;
     order.status = "paid";
+
     await order.save();
 
+    console.log("ORDER CREDITS ", order.credits);
+
+    
     await User.findByIdAndUpdate(userId, {
-      $inc: { credits: order.credits || 0 },
+      $inc: { credits: order.credits },
     });
 
     res.json({ success: true });
