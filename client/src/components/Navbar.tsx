@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-black border-b border-zinc-800 px-4 md:px-8 py-4 flex items-center justify-between">
-      {/* LEFT */}
+      
       <div className="flex items-center gap-6">
         <h1
           onClick={() => navigate("/")}
@@ -20,7 +20,7 @@ const Navbar = () => {
           Refine AI
         </h1>
 
-        {/* Desktop Menu */}
+       
         <ul className="hidden md:flex items-center gap-6 text-zinc-400 font-medium">
           <li
             onClick={() => navigate("/dashboard")}
@@ -103,7 +103,7 @@ const Navbar = () => {
 
       {/* MOBILE DROPDOWN */}
       {menuOpen && (
-        <div className="absolute top-[60px] left-0 w-full bg-black border-t border-zinc-800 flex flex-col gap-4 p-4 md:hidden z-50">
+        <div className="absolute top-15 left-0 w-full bg-black border-t border-zinc-800 flex flex-col gap-4 p-4 md:hidden z-50">
           <span onClick={() => navigate("/dashboard")} className="text-white">
             Dashboard
           </span>

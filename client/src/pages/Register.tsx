@@ -160,7 +160,7 @@ const Register = () => {
         <button
           disabled={loading}
           type="submit"
-          className="mt-2 bg-gradient-to-r from-purple-500 to-indigo-500 hover:opacity-90 text-white py-3 rounded-xl font-semibold shadow-lg transition active:scale-[0.97]"
+          className="mt-2 bg-linear-to-r from-purple-500 to-indigo-500 hover:opacity-90 text-white py-3 rounded-xl font-semibold shadow-lg transition active:scale-[0.97]"
         >
           Create Account
         </button>

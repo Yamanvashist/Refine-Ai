@@ -54,7 +54,7 @@ const Resume = () => {
         
         <div className="flex flex-col gap-3 border-b border-white/5 pb-6">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
-            Resume <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">Analyzer</span>
+            Resume <span className="bg-linear-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">Analyzer</span>
           </h1>
 
           <div className="flex items-center gap-4 mt-2">
@@ -134,16 +134,16 @@ const Resume = () => {
             <button
               onClick={handleUpload}
               disabled={loading}
-              className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 py-4 rounded-2xl font-bold text-white tracking-wide shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+              className="w-full bg-linear-to-r from-purple-600 to-indigo-600 py-4 rounded-2xl font-bold text-white tracking-wide shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
               {loading ? "Scanning Resume..." : "Analyze Resume"}
             </button>
           </div>
 
-          <div className="bg-zinc-900/40 border border-white/10 rounded-3xl p-8 backdrop-blur-xl shadow-2xl flex flex-col gap-6 h-full min-h-[500px]">
+          <div className="bg-zinc-900/40 border border-white/10 rounded-3xl p-8 backdrop-blur-xl shadow-2xl flex flex-col gap-6 h-full min-h-125">
             <h2 className="text-xl font-semibold text-white">AI Feedback</h2>
 
-            <div className="flex-1 bg-black/40 border border-white/5 rounded-2xl p-6 overflow-y-auto custom-scrollbar relative max-h-[550px]">
+            <div className="flex-1 bg-black/40 border border-white/5 rounded-2xl p-6 overflow-y-auto custom-scrollbar relative max-h-137.5">
               
               {error && (
                 <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-xl mb-4 text-sm font-medium flex items-center gap-3">

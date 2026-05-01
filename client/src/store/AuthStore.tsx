@@ -1,8 +1,5 @@
 import { create } from "zustand";
-import axios from "axios";
-
-axios.defaults.baseURL = import.meta.env.VITE_USER_API;
-axios.defaults.withCredentials = true;
+import { api } from "../api/api";
 
 interface User {
   id: string;
@@ -53,7 +50,10 @@ const useAuthStore = create<AuthState>((set) => ({
     set({ loading: true, error: null });
 
     try {
-      const { data } = await axios.post<AuthResponse>("/register", formData);
+      const { data } = await api.post<AuthResponse>(
+        "/user/register",
+        formData
+      );
 
       set({
         user: data.user,
@@ -72,9 +72,9 @@ const useAuthStore = create<AuthState>((set) => ({
     set({ loading: true, error: null });
 
     try {
-      await axios.post("/login", formData);
+      await api.post("/user/login", formData);
 
-      const { data } = await axios.get<AuthResponse>("/checkAuth");
+      const { data } = await api.get<AuthResponse>("/user/checkAuth");
 
       set({
         user: data.user,
@@ -93,7 +93,7 @@ const useAuthStore = create<AuthState>((set) => ({
     set({ loading: true, error: null });
 
     try {
-      await axios.post("/logout");
+      await api.post("/user/logout");
 
       set({
         user: null,
@@ -112,7 +112,7 @@ const useAuthStore = create<AuthState>((set) => ({
     set({ loading: true, error: null });
 
     try {
-      const { data } = await axios.get<AuthResponse>("/checkAuth");
+      const { data } = await api.get<AuthResponse>("/user/checkAuth");
 
       set({
         user: data.user,

@@ -144,14 +144,14 @@ const Home = () => {
           </p>
 
           <div className="mt-12 relative grid gap-6 sm:grid-cols-3">
-            <div className="hidden sm:block absolute top-8 left-[16.5%] right-[16.5%] h-px bg-gradient-to-r from-transparent via-violet-500/30 to-transparent" />
+            <div className="hidden sm:block absolute top-8 left-[16.5%] right-[16.5%] h-px bg-linear-to-r from-transparent via-violet-500/30 to-transparent" />
 
             {steps.map((s) => (
               <div
                 key={s.step}
                 className="relative flex flex-col items-center gap-4 rounded-2xl border border-white/8 bg-white/5 p-8 backdrop-blur-sm transition hover:-translate-y-1 hover:border-fuchsia-400/30 hover:shadow-lg hover:shadow-fuchsia-500/10"
               >
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 border border-violet-500/30 text-violet-300">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-linear-to-br from-violet-500/20 to-fuchsia-500/20 border border-violet-500/30 text-violet-300">
                   {s.icon}
                 </div>
                 <span className="text-xs font-bold tracking-widest text-zinc-600">
@@ -182,7 +182,7 @@ const Home = () => {
                 className={`relative rounded-2xl border border-white/8 bg-white/5 p-8 text-left backdrop-blur-sm transition hover:-translate-y-1 hover:shadow-lg ${tool.border}`}
               >
                 <div className="flex items-center gap-3 mb-5">
-                  <div className={`flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br ${tool.tagColor} bg-opacity-10 ${tool.accent}`}>
+                  <div className={`flex items-center justify-center w-9 h-9 rounded-xl bg-linear-to-br ${tool.tagColor} bg-opacity-10 ${tool.accent}`}>
                     {tool.icon}
                   </div>
                   <div>
@@ -202,7 +202,7 @@ const Home = () => {
                 <ul className="space-y-2">
                   {tool.points.map((pt) => (
                     <li key={pt} className="flex items-center gap-2 text-sm text-zinc-300">
-                      <span className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${tool.tagColor} flex-shrink-0`} />
+                      <span className={`w-1.5 h-1.5 rounded-full bg-linear-to-r ${tool.tagColor} shrink-0`} />
                       {pt}
                     </li>
                   ))}

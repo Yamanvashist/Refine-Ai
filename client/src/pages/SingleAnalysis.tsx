@@ -80,7 +80,7 @@ const SingleAnalysis = () => {
               </p>
             </div>
 
-            <div className={`bg-${themeColor}-500/10 border border-${themeColor}-500/20 px-6 py-4 rounded-2xl text-center min-w-[120px]`}>
+            <div className={`bg-${themeColor}-500/10 border border-${themeColor}-500/20 px-6 py-4 rounded-2xl text-center min-w-30`}>
               <span className={`block text-xs uppercase tracking-wider text-${themeColor}-400/70 font-bold mb-1`}>Overall Score</span>
               <span className={`text-4xl font-black text-${themeColor}-400`}>
                 {data.score}<span className={`text-xl text-${themeColor}-400/50`}>/10</span>
@@ -123,7 +123,7 @@ const SingleAnalysis = () => {
                     <span className="w-1.5 h-1.5 rounded-full bg-indigo-400"></span> Improved Code
                   </h3>
                   <div className="relative group">
-                    <pre className="max-h-[400px] overflow-auto bg-[#0a0a0a] border border-white/10 p-5 rounded-2xl text-sm font-mono text-zinc-300 shadow-inner custom-scrollbar">
+                    <pre className="max-h-100 overflow-auto bg-[#0a0a0a] border border-white/10 p-5 rounded-2xl text-sm font-mono text-zinc-300 shadow-inner custom-scrollbar">
                       <code>{data.improvedCode}</code>
                     </pre>
                   </div>

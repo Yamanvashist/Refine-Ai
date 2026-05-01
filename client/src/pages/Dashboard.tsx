@@ -104,7 +104,7 @@
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
                 placeholder="Paste your spaghetti code here..."
-                className="w-full h-[500px] bg-black/50 border border-white/5 rounded-2xl p-5 text-sm font-mono text-zinc-300 outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 resize-none transition-all custom-scrollbar"
+                className="w-full h-125 bg-black/50 border border-white/5 rounded-2xl p-5 text-sm font-mono text-zinc-300 outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 resize-none transition-all custom-scrollbar"
                 spellCheck="false"
               />
 
@@ -121,7 +121,7 @@
               </button>
             </div>
 
-            <div className="flex flex-col gap-5 bg-zinc-900/40 border border-white/10 rounded-3xl p-6 backdrop-blur-xl shadow-2xl h-full min-h-[600px]">
+            <div className="flex flex-col gap-5 bg-zinc-900/40 border border-white/10 rounded-3xl p-6 backdrop-blur-xl shadow-2xl h-full min-h-150">
               <h2 className="text-xl font-semibold text-white">AI Output</h2>
 
               <div className="flex-1 bg-black/40 border border-white/5 rounded-2xl p-6 overflow-y-auto custom-scrollbar relative">
@@ -200,7 +200,7 @@
                           Copy
                         </button>
 
-                        <pre className="max-h-[400px] overflow-auto bg-[#0a0a0a] border border-white/10 p-5 rounded-2xl text-sm font-mono text-zinc-300">
+                        <pre className="max-h-100 overflow-auto bg-[#0a0a0a] border border-white/10 p-5 rounded-2xl text-sm font-mono text-zinc-300">
                           <code>{result.improvedCode}</code>
                         </pre>
                       </div>

@@ -64,7 +64,7 @@ const Pricing = () => {
         { withCredentials: true }
       );
 
-      console.log("CREATED ORDER 👉", data.id);
+      console.log("CREATED ORDER ->", data.id);
 
 
       if (!(window as any).Razorpay) {
@@ -81,7 +81,7 @@ const Pricing = () => {
         order_id: data.id,
 
         handler: async function (response: any) {
-          console.log("RAZOR RESPONSE 👉", response);
+          console.log("RAZOR RESPONSE ->", response);
 
           try {
             const verifyRes = await axios.post(
@@ -115,7 +115,7 @@ const Pricing = () => {
       rzp.open();
 
     } catch (err) {
-      console.log("PAYMENT ERROR 👉", err);
+      console.log("PAYMENT ERROR ->", err);
       alert("Payment failed");
     } finally {
       setLoadingPlan(null);
@@ -138,7 +138,7 @@ const Pricing = () => {
             className={`relative rounded-2xl p-7 border flex flex-col gap-5 transition duration-300
               ${
                 plan.highlighted
-                  ? "bg-gradient-to-b from-purple-600/20 to-indigo-600/10 border-purple-500 scale-105 shadow-xl shadow-purple-900/40"
+                  ? "bg-linear-to-b from-purple-600/20 to-indigo-600/10 border-purple-500 scale-105 shadow-xl shadow-purple-900/40"
                   : "bg-white/5 border-white/10 hover:border-purple-400 hover:-translate-y-1"
               }`}
           >
@@ -173,7 +173,7 @@ const Pricing = () => {
               className={`mt-auto py-3 rounded-xl font-medium transition
                 ${
                   plan.highlighted
-                    ? "bg-gradient-to-r from-purple-500 to-indigo-500 hover:opacity-90"
+                    ? "bg-linear-to-r from-purple-500 to-indigo-500 hover:opacity-90"
                     : "bg-white text-black hover:bg-white/80"
                 }
                 ${loadingPlan === plan.name ? "opacity-50 cursor-not-allowed" : ""}
