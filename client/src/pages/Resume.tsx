@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import useAuthStore from "../store/AuthStore";
 
+const API = import.meta.env.VITE_API_URL;
+
 const Resume = () => {
   const [file, setFile] = useState<File | null>(null);
   const [result, setResult] = useState<any>(null);
@@ -29,7 +31,7 @@ const Resume = () => {
       formData.append("resume", file);
 
       const { data } = await axios.post(
-        "http://localhost:4000/ai/resume",
+        `${API}/ai/resume`,
         formData,
         {
           withCredentials: true,

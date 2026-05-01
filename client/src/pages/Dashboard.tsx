@@ -3,6 +3,9 @@
   import useAuthStore from "../store/AuthStore";
   import { useNavigate } from "react-router-dom";
 
+  const API = import.meta.env.VITE_API_URL;
+
+
   const Dashboard = () => {
     const [code, setCode] = useState("");
     const [result, setResult] = useState<any>(null);
@@ -25,7 +28,7 @@
         setError(null);
 
         const { data } = await axios.post(
-          "http://localhost:4000/ai/analyze",
+          `${API}/ai/analyze`,
           { code },
           { withCredentials: true },
         );
