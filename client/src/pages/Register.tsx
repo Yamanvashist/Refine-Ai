@@ -88,7 +88,6 @@ const Register = () => {
             />
           </label>
 
-          {/* Email */}
           <label className="relative text-white text-sm">
             Email
             <input
