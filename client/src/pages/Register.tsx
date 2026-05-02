@@ -2,6 +2,7 @@ import { User, Mail, Lock, Eye, EyeClosed } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useAuthStore from "../store/AuthStore";
+import GoogleLoginButton from "../components/auth/GoogleLoginButton";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -164,6 +165,16 @@ const Register = () => {
         >
           Create Account
         </button>
+
+        <div className="flex items-center gap-3 my-2">
+          <div className="flex-1 h-px bg-white/20" />
+          <span className="text-white/50 text-xs">OR</span>
+          <div className="flex-1 h-px bg-white/20" />
+        </div>
+
+        <div className="flex justify-center">
+          <GoogleLoginButton />
+        </div>
 
         <p className="text-center text-white/60 text-sm">
           Already have an account?{" "}

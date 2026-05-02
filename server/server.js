@@ -19,6 +19,7 @@ app.use(
     credentials: true,
   }),
 );
+console.log(process.env.CLIENT_URL);
 
 connect();
 app.use(cookieParser());

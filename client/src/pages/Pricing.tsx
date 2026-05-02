@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import useAuthStore from "../store/AuthStore";
+import toast from "react-hot-toast";
 
 const Pricing = () => {
   const { user, setUser } = useAuthStore();
@@ -66,9 +67,8 @@ const Pricing = () => {
 
       console.log("CREATED ORDER ->", data.id);
 
-
       if (!(window as any).Razorpay) {
-        alert("Razorpay not loaded. Refresh.");
+        toast.error("Razorpay not loaded. Refresh please");
         return;
       }
 
@@ -86,12 +86,12 @@ const Pricing = () => {
           try {
             const verifyRes = await axios.post(
               "http://localhost:4000/order/verify-payment",
-              response, 
+              response,
               { withCredentials: true }
             );
 
             if (verifyRes.data.success) {
-              alert("Payment successful ");
+              toast.success("Payment successful ");
 
               if (user) {
                 setUser({
@@ -102,8 +102,14 @@ const Pricing = () => {
             }
           } catch (err) {
             console.log("VERIFY ERROR", err);
-            alert("Payment verification failed");
+            toast.error("Payment verification failed");
           }
+        },
+
+        modal: {
+          ondismiss: function () {
+            toast("Payment cancelled");
+          },
         },
 
         theme: {
@@ -116,7 +122,7 @@ const Pricing = () => {
 
     } catch (err) {
       console.log("PAYMENT ERROR ->", err);
-      alert("Payment failed");
+      toast.error("Payment failed");
     } finally {
       setLoadingPlan(null);
     }
@@ -176,8 +182,11 @@ const Pricing = () => {
                     ? "bg-linear-to-r from-purple-500 to-indigo-500 hover:opacity-90"
                     : "bg-white text-black hover:bg-white/80"
                 }
-                ${loadingPlan === plan.name ? "opacity-50 cursor-not-allowed" : ""}
-              `}
+                ${
+                  loadingPlan === plan.name
+                    ? "opacity-50 cursor-not-allowed"
+                    : ""
+                }`}
             >
               {loadingPlan === plan.name
                 ? "Processing..."
