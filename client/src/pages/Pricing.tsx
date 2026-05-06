@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import useAuthStore from "../store/AuthStore";
 import toast from "react-hot-toast";
+import {api} from "../api/api"
 
 const Pricing = () => {
   const { user, setUser } = useAuthStore();
@@ -60,7 +61,7 @@ const Pricing = () => {
       setLoadingPlan(plan.name);
 
       const { data } = await axios.post(
-        "http://localhost:4000/order/create-order",
+        `${api}/order/create-order`,
         { amount: plan.amount },
         { withCredentials: true }
       );
@@ -85,7 +86,7 @@ const Pricing = () => {
 
           try {
             const verifyRes = await axios.post(
-              "http://localhost:4000/order/verify-payment",
+              `${api}/order/verify-payment`,
               response,
               { withCredentials: true }
             );
