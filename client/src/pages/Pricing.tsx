@@ -60,8 +60,8 @@ const Pricing = () => {
     try {
       setLoadingPlan(plan.name);
 
-      const { data } = await axios.post(
-        `${api}/order/create-order`,
+      const { data } = await api.post(
+        "/order/create-order",
         { amount: plan.amount },
         { withCredentials: true }
       );
@@ -85,8 +85,8 @@ const Pricing = () => {
           console.log("RAZOR RESPONSE ->", response);
 
           try {
-            const verifyRes = await axios.post(
-              `${api}/order/verify-payment`,
+            const verifyRes = await api.post(
+              "/order/verify-payment",
               response,
               { withCredentials: true }
             );
