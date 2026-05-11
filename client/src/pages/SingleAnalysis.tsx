@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
+
+
 const SingleAnalysis = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  const API = import.meta.env.VITE_API_URL;
   
   const [data, setData] = useState<any>(null);
   const [type, setType] = useState<"code" | "resume" | null>(null);
@@ -15,7 +18,7 @@ const SingleAnalysis = () => {
     const fetchOne = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:4000/ai/analysis/${id}`,
+          `${API}/ai/analysis/${id}`,
           { withCredentials: true }
         );
 
@@ -29,7 +32,7 @@ const SingleAnalysis = () => {
     };
 
     fetchOne();
-  }, [id]);
+  }, [API, id]);
 
   if (loading) {
     return (
